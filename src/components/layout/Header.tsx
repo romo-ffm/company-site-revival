@@ -25,15 +25,19 @@ const Header = () => {
   ];
 
   const ueberUnsLinks = [
-    { href: "/ueber-uns", label: "Über die GIMA", description: "Mission, Geschichte & Team" },
-    { href: "/wege-des-verkaufs", label: "Wege des Verkaufs", description: "Stiftung, Genossenschaft & mehr" },
+    { href: "/ueber-uns", label: "Über die GIMA", description: "Mission, Geschichte & Werte" },
+    { href: "/mitglieder", label: "Mitglieder", description: "Unsere Mitgliedsorganisationen" },
+    { href: "/vorstand", label: "Vorstand & Aufsichtsrat", description: "Unsere Gremien" },
+    { href: "/projekte", label: "Projekte", description: "Erfolgreich vermittelte Häuser" },
     { href: "/partner", label: "Partner & Netzwerke", description: "Unsere Kooperationen" },
   ];
 
   const wissenLinks = [
+    { href: "/wissen", label: "Wissen", description: "Alle Themen im Überblick" },
+    { href: "/wege-des-verkaufs", label: "Wege des Verkaufs", description: "Stiftung, Genossenschaft & mehr" },
     { href: "/blog", label: "Blog & Neuigkeiten", description: "Aktuelle Beiträge" },
     { href: "/faq", label: "FAQ", description: "Häufig gestellte Fragen" },
-    { href: "/ressourcen", label: "Wissen & Ressourcen", description: "Informationen & Links" },
+    { href: "/ressourcen", label: "Ressourcen & Links", description: "Dokumente & weiterführende Informationen" },
   ];
 
   return (
