@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Heart, Users, Target, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+import peopleMeeting3 from "@/assets/people-meeting-3.jpg";
+import buildingHistoric2 from "@/assets/building-historic-2.jpg";
+
 const UeberUnsPage = () => {
   const values = [
     {
@@ -29,9 +32,14 @@ const UeberUnsPage = () => {
 
   return (
     <Layout>
-      {/* Hero */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-background via-accent/20 to-background">
-        <div className="container-wide">
+      {/* Hero with background image */}
+      <section className="relative py-20 md:py-32 overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${peopleMeeting3})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/60" />
+        <div className="container-wide relative z-10">
           <div className="max-w-3xl">
             <h1 className="mb-6">
               Über die <span className="text-primary">GIMA Frankfurt</span>
@@ -68,13 +76,17 @@ const UeberUnsPage = () => {
                 So entziehen wir Häuser dem Spekulationsmarkt – für immer.
               </p>
             </div>
-            <div className="bg-primary text-primary-foreground rounded-2xl p-8 md:p-12">
-              <blockquote className="text-xl md:text-2xl font-medium leading-relaxed">
-                "Wohnen ist keine Ware, sondern ein Menschenrecht. 
-                Wir arbeiten dafür, dass Häuser in gute Hände kommen – 
-                und dort bleiben."
-              </blockquote>
-              <p className="mt-6 opacity-80">– GIMA Frankfurt</p>
+            <div className="relative rounded-2xl overflow-hidden">
+              <img 
+                src={buildingHistoric2} 
+                alt="Historisches Gebäude in Frankfurt"
+                className="w-full h-auto"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-8">
+                <blockquote className="text-xl md:text-2xl font-medium text-primary-foreground leading-relaxed">
+                  "Wohnen ist keine Ware, sondern ein Menschenrecht."
+                </blockquote>
+              </div>
             </div>
           </div>
         </div>

@@ -2,7 +2,10 @@ import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { ArrowRight, Building2, Users, Shield, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+
+import peopleMeeting4 from "@/assets/people-meeting-4.jpg";
+import buildingLarge1 from "@/assets/building-large-1.jpg";
 
 const MitgliederPage = () => {
   const memberTypes = [
@@ -43,9 +46,14 @@ const MitgliederPage = () => {
 
   return (
     <Layout>
-      {/* Hero */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-background via-accent/20 to-background">
-        <div className="container-wide">
+      {/* Hero with background image */}
+      <section className="relative py-20 md:py-32 overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${peopleMeeting4})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/60" />
+        <div className="container-wide relative z-10">
           <div className="max-w-3xl">
             <h1 className="mb-6">
               Unsere <span className="text-primary">Mitglieder</span>
@@ -79,9 +87,14 @@ const MitgliederPage = () => {
         </div>
       </section>
 
-      {/* Vorteile & Voraussetzungen */}
-      <section className="py-16 md:py-24 bg-muted">
-        <div className="container-wide">
+      {/* Vorteile & Voraussetzungen with image */}
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${buildingLarge1})` }}
+        />
+        <div className="absolute inset-0 bg-background/95" />
+        <div className="container-wide relative z-10">
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
               <h2 className="mb-6">Vorteile der Mitgliedschaft</h2>
