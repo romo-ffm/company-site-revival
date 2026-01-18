@@ -27,7 +27,7 @@
     --popover-foreground: 210 20% 20%;
 
     /* Primary: GIMA Teal */
-    --primary: 174 58% 39%;
+    --primary: 187 100% 40%;
     --primary-foreground: 0 0% 100%;
 
     /* Secondary: Warm neutral */
@@ -39,14 +39,14 @@
 
     /* Accent: Lighter Teal */
     --accent: 174 45% 92%;
-    --accent-foreground: 174 65% 28%;
+    --accent-foreground: 187 100% 40%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 210 15% 89%;
     --input: 210 15% 89%;
-    --ring: 174 58% 39%;
+    --ring: 187 100% 40%;
 
     --radius: 0.5rem;
 
