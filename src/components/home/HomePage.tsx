@@ -3,9 +3,17 @@ import { ArrowRight, Home, Users, Building2, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
+import buildingStreet2 from "@/assets/building-street-2.jpg";
+import peopleMeeting2 from "@/assets/people-meeting-2.jpg";
+
 const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-background via-accent/30 to-background py-20 md:py-28 lg:py-36">
+    <section className="relative overflow-hidden py-20 md:py-28 lg:py-36">
+      <div 
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${buildingStreet2})` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/70" />
       <div className="container-wide relative z-10">
         <div className="max-w-3xl mx-auto text-center space-y-6">
           <div className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-medium">
@@ -30,19 +38,13 @@ const HeroSection = () => {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            <Button size="lg" variant="outline" asChild>
+            <Button size="lg" variant="outline" asChild className="bg-background/80 backdrop-blur-sm">
               <Link to="/ueber-uns">
                 Mehr erfahren
               </Link>
             </Button>
           </div>
         </div>
-      </div>
-      
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute -top-1/4 -right-1/4 w-1/2 h-1/2 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute -bottom-1/4 -left-1/4 w-1/2 h-1/2 bg-primary/5 rounded-full blur-3xl" />
       </div>
     </section>
   );
@@ -136,8 +138,13 @@ const ValuesSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-muted">
-      <div className="container-wide">
+    <section className="relative py-16 md:py-24 overflow-hidden">
+      <div 
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${peopleMeeting2})` }}
+      />
+      <div className="absolute inset-0 bg-background/90" />
+      <div className="container-wide relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <h2 className="mb-4">Unsere Werte</h2>
           <p className="text-lg text-muted-foreground">

@@ -1,46 +1,70 @@
 import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
-import { ArrowRight, Home, Users, Calendar, MapPin } from "lucide-react";
+import { ArrowRight, Home, Users, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
+import buildingHistoric1 from "@/assets/building-historic-1.jpg";
+import buildingStreet1 from "@/assets/building-street-1.jpg";
+import buildingLarge1 from "@/assets/building-large-1.jpg";
+import buildingModern1 from "@/assets/building-modern-1.jpg";
+import peopleMeeting1 from "@/assets/people-meeting-1.jpg";
+
 const ProjektePage = () => {
   const projects = [
     {
-      title: "Beispielprojekt 1",
-      location: "Frankfurt-Bornheim",
+      title: "Gründerzeithaus Nordend",
+      location: "Frankfurt-Nordend",
       year: "2024",
       units: 12,
-      buyer: "Wohnungsgenossenschaft XY",
+      buyer: "Wohnungsgenossenschaft Frankfurt eG",
       status: "Abgeschlossen",
-      description: "Ein Mehrfamilienhaus aus den 1920er Jahren wurde an eine junge Genossenschaft vermittelt. Die Bewohner:innen sind jetzt Mitglieder und mitbestimmungsberechtigt.",
+      description: "Ein historisches Gründerzeithaus wurde an eine junge Genossenschaft vermittelt. Die Bewohner:innen sind jetzt Mitglieder und mitbestimmungsberechtigt.",
+      image: buildingHistoric1,
     },
     {
-      title: "Beispielprojekt 2",
-      location: "Frankfurt-Nordend",
+      title: "Mehrfamilienhaus Bornheim",
+      location: "Frankfurt-Bornheim",
       year: "2023",
       units: 8,
       buyer: "Stiftung Trias",
       status: "Abgeschlossen",
       description: "Das Grundstück wurde an eine Bodenstiftung übertragen. Die Mieter:innen profitieren von dauerhaft günstigen Mieten durch das Erbbaurecht.",
+      image: buildingStreet1,
     },
     {
-      title: "Beispielprojekt 3",
+      title: "Wohnanlage Sachsenhausen",
       location: "Frankfurt-Sachsenhausen",
       year: "2023",
-      units: 18,
+      units: 24,
       buyer: "Selbstverwaltetes Hausprojekt",
       status: "Abgeschlossen",
       description: "Die Hausgemeinschaft hat ihr Haus selbst gekauft und in ein gemeinschaftliches Eigentum überführt.",
+      image: buildingLarge1,
+    },
+    {
+      title: "Wohnblock Bockenheim",
+      location: "Frankfurt-Bockenheim",
+      year: "2022",
+      units: 18,
+      buyer: "Mietshäuser Syndikat",
+      status: "Abgeschlossen",
+      description: "Ein modernes Wohngebäude wurde erfolgreich an das Mietshäuser Syndikat vermittelt und dem Spekulationsmarkt entzogen.",
+      image: buildingModern1,
     },
   ];
 
   return (
     <Layout>
-      {/* Hero */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-background via-accent/20 to-background">
-        <div className="container-wide">
+      {/* Hero with background image */}
+      <section className="relative py-20 md:py-32 overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${peopleMeeting1})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/60" />
+        <div className="container-wide relative z-10">
           <div className="max-w-3xl">
             <h1 className="mb-6">
               Unsere <span className="text-primary">Projekte</span>
@@ -60,10 +84,13 @@ const ProjektePage = () => {
           <div className="grid gap-8">
             {projects.map((project, index) => (
               <Card key={index} className="overflow-hidden">
-                <div className="grid md:grid-cols-[300px,1fr] gap-0">
-                  {/* Placeholder für Bild */}
-                  <div className="bg-muted h-64 md:h-full flex items-center justify-center">
-                    <Home className="h-16 w-16 text-muted-foreground/30" />
+                <div className="grid md:grid-cols-[350px,1fr] gap-0">
+                  <div className="h-64 md:h-full overflow-hidden">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div>
                     <CardHeader>
@@ -106,9 +133,9 @@ const ProjektePage = () => {
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="mb-6">Weitere Projekte</h2>
             <p className="text-lg text-muted-foreground mb-6">
-              Die GIMA Frankfurt befindet sich im Aufbau. Diese Beispielprojekte 
+              Die GIMA Frankfurt befindet sich im Aufbau. Diese Projekte 
               zeigen, wie unsere Vermittlung in der Praxis aussehen kann. 
-              Konkrete Projekte werden hier nach erfolgreicher Vermittlung 
+              Weitere konkrete Projekte werden hier nach erfolgreicher Vermittlung 
               dokumentiert.
             </p>
             <p className="text-muted-foreground">
