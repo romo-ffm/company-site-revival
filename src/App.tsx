@@ -8,8 +8,12 @@ import Eigentuemer from "./pages/Eigentuemer";
 import Hausgemeinschaften from "./pages/Hausgemeinschaften";
 import Wohnungsunternehmen from "./pages/Wohnungsunternehmen";
 import UeberUns from "./pages/UeberUns";
+import Mitglieder from "./pages/Mitglieder";
+import Vorstand from "./pages/Vorstand";
+import Projekte from "./pages/Projekte";
 import WegeDesVerkaufs from "./pages/WegeDesVerkaufs";
 import Partner from "./pages/Partner";
+import Wissen from "./pages/Wissen";
 import Blog from "./pages/Blog";
 import FAQ from "./pages/FAQ";
 import Ressourcen from "./pages/Ressourcen";
@@ -33,8 +37,12 @@ const App = () => (
           <Route path="/hausgemeinschaften" element={<Hausgemeinschaften />} />
           <Route path="/wohnungsunternehmen" element={<Wohnungsunternehmen />} />
           <Route path="/ueber-uns" element={<UeberUns />} />
+          <Route path="/mitglieder" element={<Mitglieder />} />
+          <Route path="/vorstand" element={<Vorstand />} />
+          <Route path="/projekte" element={<Projekte />} />
           <Route path="/wege-des-verkaufs" element={<WegeDesVerkaufs />} />
           <Route path="/partner" element={<Partner />} />
+          <Route path="/wissen" element={<Wissen />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/ressourcen" element={<Ressourcen />} />
