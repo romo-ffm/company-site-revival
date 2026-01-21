@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Home, Users, Building2, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import NewsSidebar from "./NewsSidebar";
 
 import buildingStreet2 from "@/assets/building-street-2.jpg";
 import peopleMeeting2 from "@/assets/people-meeting-2.jpg";
@@ -78,39 +79,49 @@ const TargetGroupSection = () => {
   return (
     <section className="py-16 md:py-24 bg-background">
       <div className="container-wide">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="mb-4">Unsere Angebote</h2>
-          <p className="text-lg text-muted-foreground">
-            Die GIMA richtet sich an verschiedene Zielgruppen – 
-            alle verbunden durch das Ziel, Wohnen langfristig zu sichern.
-          </p>
-        </div>
-        
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-          {groups.map((group, index) => (
-            <Card 
-              key={index} 
-              className="group relative overflow-hidden border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-lg"
-            >
-              <CardHeader>
-                <div className="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-lg bg-accent text-primary">
-                  <group.icon className="h-6 w-6" />
-                </div>
-                <CardTitle className="text-xl">{group.title}</CardTitle>
-                <CardDescription className="text-base">
-                  {group.description}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button variant="ghost" asChild className="group/btn p-0 h-auto">
-                  <Link to={group.link} className="inline-flex items-center text-primary font-medium">
-                    {group.linkText}
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="grid lg:grid-cols-[1fr_320px] gap-8 lg:gap-12">
+          {/* Main content */}
+          <div>
+            <div className="text-center max-w-2xl mx-auto mb-12 lg:text-left lg:mx-0">
+              <h2 className="mb-4">Unsere Angebote</h2>
+              <p className="text-lg text-muted-foreground">
+                Die GIMA richtet sich an verschiedene Zielgruppen – 
+                alle verbunden durch das Ziel, Wohnen langfristig zu sichern.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+              {groups.map((group, index) => (
+                <Card 
+                  key={index} 
+                  className="group relative overflow-hidden border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-lg"
+                >
+                  <CardHeader>
+                    <div className="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-lg bg-accent text-primary">
+                      <group.icon className="h-6 w-6" />
+                    </div>
+                    <CardTitle className="text-xl">{group.title}</CardTitle>
+                    <CardDescription className="text-base">
+                      {group.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Button variant="ghost" asChild className="group/btn p-0 h-auto">
+                      <Link to={group.link} className="inline-flex items-center text-primary font-medium">
+                        {group.linkText}
+                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+          
+          {/* Sidebar */}
+          <div className="lg:pt-16">
+            <NewsSidebar />
+          </div>
         </div>
       </div>
     </section>
