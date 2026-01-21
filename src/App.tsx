@@ -15,6 +15,7 @@ import WegeDesVerkaufs from "./pages/WegeDesVerkaufs";
 import Partner from "./pages/Partner";
 import Wissen from "./pages/Wissen";
 import Blog from "./pages/Blog";
+import Veranstaltungen from "./pages/Veranstaltungen";
 import FAQ from "./pages/FAQ";
 import Ressourcen from "./pages/Ressourcen";
 import Kontakt from "./pages/Kontakt";
@@ -44,6 +45,8 @@ const App = () => (
           <Route path="/partner" element={<Partner />} />
           <Route path="/wissen" element={<Wissen />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/veranstaltungen" element={<Veranstaltungen />} />
+          <Route path="/faq" element={<FAQ />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/ressourcen" element={<Ressourcen />} />
           <Route path="/kontakt" element={<Kontakt />} />

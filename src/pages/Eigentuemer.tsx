@@ -1,7 +1,8 @@
 import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
-import { ArrowRight, Heart, CheckCircle2, Home, TrendingDown } from "lucide-react";
+import { ArrowRight, Heart, CheckCircle2, Home, TrendingDown, Gift, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const EigentuemerPage = () => {
   const benefits = [
@@ -34,6 +35,13 @@ const EigentuemerPage = () => {
       description: "Wir begleiten den Verkaufsprozess transparent und fair bis zum Abschluss.",
     },
   ];
+
+  const consultationPackage = {
+    title: "Kostenfreies Grundberatungspaket",
+    hours: "4 Beratungsstunden",
+    description: "In unserer kostenlosen Erstberatung lernen wir Ihre Situation kennen und besprechen alle Möglichkeiten.",
+    details: "Weitergehende Beratung wird anschließend kostenpflichtig. Bei erfolgreicher Vermittlung erstatten wir Ihnen diese Kosten zurück.",
+  };
 
   return (
     <Layout>
@@ -115,6 +123,44 @@ const EigentuemerPage = () => {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Beratungspaket */}
+      <section className="py-16 md:py-24 bg-accent/30">
+        <div className="container-wide">
+          <div className="max-w-4xl mx-auto">
+            <Card className="border-2 border-primary/20 bg-background">
+              <CardHeader className="text-center pb-4">
+                <div className="mx-auto w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                  <Gift className="h-8 w-8 text-primary" />
+                </div>
+                <CardTitle className="text-2xl md:text-3xl">{consultationPackage.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="flex items-center justify-center gap-2 text-xl font-semibold text-primary">
+                  <Clock className="h-5 w-5" />
+                  <span>{consultationPackage.hours} kostenfrei</span>
+                </div>
+                <p className="text-center text-lg text-muted-foreground max-w-2xl mx-auto">
+                  {consultationPackage.description}
+                </p>
+                <div className="bg-muted rounded-lg p-4 text-center">
+                  <p className="text-muted-foreground">
+                    {consultationPackage.details}
+                  </p>
+                </div>
+                <div className="text-center pt-2">
+                  <Button size="lg" asChild>
+                    <Link to="/kontakt">
+                      Kostenlose Beratung anfragen
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

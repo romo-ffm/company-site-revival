@@ -36,6 +36,7 @@ const Header = () => {
     { href: "/wissen", label: "Wissen", description: "Alle Themen im Überblick" },
     { href: "/wege-des-verkaufs", label: "Wege des Verkaufs", description: "Stiftung, Genossenschaft & mehr" },
     { href: "/blog", label: "Blog & Neuigkeiten", description: "Aktuelle Beiträge" },
+    { href: "/veranstaltungen", label: "Veranstaltungen", description: "Termine & Events" },
     { href: "/faq", label: "FAQ", description: "Häufig gestellte Fragen" },
     { href: "/ressourcen", label: "Ressourcen & Links", description: "Dokumente & weiterführende Informationen" },
   ];
