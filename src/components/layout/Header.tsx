@@ -11,6 +11,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
+import gimaLogo from "@/assets/gima-herz-logo.jpg";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -47,19 +48,11 @@ const Header = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
           <div className="flex items-center">
-            <svg 
-              viewBox="0 0 40 40" 
-              className="h-10 w-10"
-              aria-label="GIMA Logo"
-            >
-              <circle cx="20" cy="20" r="18" fill="hsl(174, 58%, 39%)" />
-              <path 
-                d="M12 20 L20 12 L28 20 L20 28 Z" 
-                fill="white" 
-                opacity="0.9"
-              />
-              <circle cx="20" cy="20" r="4" fill="hsl(174, 65%, 28%)" />
-            </svg>
+            <img
+              src={gimaLogo}
+              alt="GIMA Frankfurt Logo"
+              className="h-10 w-10 object-contain"
+            />
             <span className="ml-2 text-xl font-semibold text-foreground">
               GIMA<span className="text-primary"> Frankfurt</span>
             </span>
