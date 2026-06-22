@@ -1,35 +1,56 @@
-## Footer-Redesign nach Screenshot
+# Landingpage-Redesign
 
-Der Footer wird auf das Layout aus dem Screenshot umgebaut — gleicher Aufbau, gleiche Inhalte, nur visuell näher am Vorbild.
+Die Startseite stapelt aktuell zu viele Inhalte in einem Zwei-Spalten-Layout, das auf schmalen Bildschirmen kollabiert und die Hierarchie verliert. Ziel: ein klarer, linearer Aufbau, der News und Veranstaltungen prominent zeigt, ohne die Seite zu überladen.
 
-### Änderungen in `src/components/layout/Footer.tsx`
+## Neue Sektions-Reihenfolge
 
-**Spalte 1 – Marke**
-- Statt SVG-Platzhalter + Text das echte GIMA-Logo (`gima-herz-logo.jpg`) groß einbinden (~h-20)
-- Tagline darunter: „Immobilien sozialverträglich verkaufen" (fett, kein Fließtext mehr)
-- Der bisherige Beschreibungstext entfällt
+```text
+1. Hero            – ruhig, klare Headline + 2 CTAs
+2. Aktuelles       – Neuigkeiten & Veranstaltungen (volle Breite)
+3. Unsere Angebote – 3 Zielgruppen-Karten (ohne Sidebar)
+4. Unsere Werte    – kompakter Streifen
+5. CTA             – „Lassen Sie uns ins Gespräch kommen"
+```
 
-**Spalte 2 – Angebote** (unverändert)
-Für Eigentümer:innen · Für Hausgemeinschaften · Für Wohnungsunternehmen · Wege des Verkaufs
+## Was sich pro Sektion ändert
 
-**Spalte 3 – Wissen & Info** (unverändert)
-Über die GIMA · Blog & Neuigkeiten · FAQ · Ressourcen & Links · Partner & Netzwerke
+**Hero**
+- Bleibt inhaltlich gleich, aber Padding mobil reduziert (`py-16` statt `py-20`), Button-Stack stabiler.
 
-**Spalte 4 – Kontakt**
-- Adresszeile (MapPin „Frankfurt am Main") entfernt
-- Mail- und Telefon-Icons größer in türkis ausgefüllten Kreisen wie im Screenshot
-- E-Mail aktualisiert: `info@gima-frankfurt.de`
-- Telefon aktualisiert: `+49 69 9592 8082`
+**Aktuelles (neu als eigene Sektion)**
+- Die bisherige `NewsSidebar` wird zur vollwertigen Sektion umgebaut.
+- Visueller Stil der beiden Karten (Neuigkeiten / Veranstaltungen) bleibt erhalten – wie vom User gewünscht.
+- Layout: zwei nebeneinander liegende Karten auf Desktop (`md:grid-cols-2`), gestapelt auf Mobile.
+- Sektion-Header darüber: kleine Headline „Aktuelles aus der GIMA" + kurzer Untertitel.
 
-**Trennlinie + Bottom-Bar**
-- Dünne Linie über die mittleren Spalten (wie im Screenshot)
-- Links: `© 2026 GIMA Frankfurt eG. Alle Rechte vorbehalten.`
-- Rechts: Impressum · Datenschutz · AGB
+**Unsere Angebote**
+- Sidebar entfällt komplett (News wandern nach oben).
+- Drei Zielgruppen-Karten nehmen die volle Breite ein → mehr Luft, größere Icons, bessere Lesbarkeit auf Mobile.
+- Mobile: untereinander mit ordentlichem Abstand; ab `md`: 3 Spalten.
 
-### Offene Frage – Social-Media-Buttons
+**Unsere Werte – kompakter**
+- Statt 4 großer Karten auf Bild-Background: schlanker Streifen mit 4 Stichworten (Icon + kurzer Titel, ein Satz).
+- Hintergrundbild raus oder stark gedämpft, weniger visuelles Gewicht.
+- Auf Mobile 2 Spalten statt einer langen Liste.
 
-Im Screenshot sind die zuvor gewünschten Social-Buttons (Mastodon, BlueSky, LinkedIn, Instagram, Facebook, RSS) **nicht** sichtbar. Ich würde sie standardmäßig **behalten** und dezent oberhalb der Bottom-Bar platzieren, damit sie nicht verloren gehen. Falls du sie aus dem Footer ganz entfernen willst, sag kurz Bescheid — dann fliegen sie raus (z. B. um sie später nur im Header oder auf einer Kontaktseite zu zeigen).
+**CTA**
+- Unverändert, nur Spacing-Feinschliff für Mobile.
 
-### Was nicht geändert wird
-- Keine Logik, keine Routen, keine anderen Komponenten
-- Farben/Tokens aus dem bestehenden Design-System
+## Mobile-Fixes (querschnittlich)
+
+- Konsistente Sektions-Paddings: `py-12 md:py-20`.
+- `container-wide` Innenabstand mobil prüfen, damit Karten nicht am Rand kleben.
+- Buttons in CTA-Reihen: `w-full sm:w-auto` für saubere Stapelung.
+- Headlines: `text-balance` + responsive Größen kontrollieren (kein Überlauf langer Wörter).
+
+## Technische Hinweise
+
+- `src/components/home/HomePage.tsx`: Reihenfolge und Layout-Grid in `TargetGroupSection` umbauen (Sidebar raus); neue `NewsSection` einfügen, die `NewsSidebar`-Inhalt voll-breit rendert.
+- `src/components/home/NewsSidebar.tsx`: Karten-Inhalte bleiben, Wrapper wird flexibler (Prop `layout="full" | "sidebar"`) ODER neue Komponente `NewsSection.tsx`, die die zwei Karten in einem Grid platziert. Empfehlung: neue `NewsSection.tsx`, `NewsSidebar` bleibt als Komponente für evtl. spätere Verwendung auf Unterseiten.
+- `ValuesSection`: Hintergrundbild entfernen, Karten-Markup vereinfachen, Icons aus `lucide-react` ergänzen (z.B. `HandHeart`, `ShieldCheck`, `Eye`, `Users`).
+- Keine Änderungen an Routing, Daten oder anderen Seiten in diesem Schritt.
+
+## Out of scope
+
+- Unterseiten (Eigentümer:innen, Hausgemeinschaften etc.) – kommen in einem separaten Plan.
+- Anbindung der News/Events an die Datenbank – Platzhalterdaten bleiben vorerst.
