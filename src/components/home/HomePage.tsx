@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Home, Users, Building2, Heart } from "lucide-react";
+import { ArrowRight, Home, Users, Building2, Heart, HandHeart, ShieldCheck, Eye, Sprout } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import NewsSidebar from "./NewsSidebar";
+import NewsSection from "./NewsSection";
 
 import buildingStreet2 from "@/assets/building-street-2.jpg";
-import peopleMeeting2 from "@/assets/people-meeting-2.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden py-20 md:py-28 lg:py-36">
+    <section className="relative overflow-hidden py-16 md:py-28 lg:py-36">
       <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${buildingStreet2})` }}
@@ -32,14 +31,14 @@ const HeroSection = () => {
             und für Menschen, die langfristig sicher wohnen möchten.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <Button size="lg" asChild>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-4">
+            <Button size="lg" asChild className="w-full sm:w-auto">
               <Link to="/kontakt">
                 Beratungsgespräch vereinbaren
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            <Button size="lg" variant="outline" asChild className="bg-background/80 backdrop-blur-sm">
+            <Button size="lg" variant="outline" asChild className="w-full sm:w-auto bg-background/80 backdrop-blur-sm">
               <Link to="/ueber-uns">
                 Mehr erfahren
               </Link>
@@ -77,51 +76,41 @@ const TargetGroupSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-background">
+    <section className="py-12 md:py-20 bg-background">
       <div className="container-wide">
-        <div className="grid lg:grid-cols-[1fr_320px] gap-8 lg:gap-12">
-          {/* Main content */}
-          <div>
-            <div className="text-center max-w-2xl mx-auto mb-12 lg:text-left lg:mx-0">
-              <h2 className="mb-4">Unsere Angebote</h2>
-              <p className="text-lg text-muted-foreground">
-                Die GIMA richtet sich an verschiedene Zielgruppen – 
-                alle verbunden durch das Ziel, Wohnen langfristig zu sichern.
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-              {groups.map((group, index) => (
-                <Card 
-                  key={index} 
-                  className="group relative overflow-hidden border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-lg"
-                >
-                  <CardHeader>
-                    <div className="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-lg bg-accent text-primary">
-                      <group.icon className="h-6 w-6" />
-                    </div>
-                    <CardTitle className="text-xl">{group.title}</CardTitle>
-                    <CardDescription className="text-base">
-                      {group.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <Button variant="ghost" asChild className="group/btn p-0 h-auto">
-                      <Link to={group.link} className="inline-flex items-center text-primary font-medium">
-                        {group.linkText}
-                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-          
-          {/* Sidebar */}
-          <div className="lg:pt-16">
-            <NewsSidebar />
-          </div>
+        <div className="max-w-2xl mb-8 md:mb-12">
+          <h2 className="mb-3">Unsere Angebote</h2>
+          <p className="text-lg text-muted-foreground">
+            Die GIMA richtet sich an verschiedene Zielgruppen –
+            alle verbunden durch das Ziel, Wohnen langfristig zu sichern.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          {groups.map((group, index) => (
+            <Card
+              key={index}
+              className="group relative overflow-hidden border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-lg"
+            >
+              <CardHeader>
+                <div className="mb-4 inline-flex items-center justify-center w-14 h-14 rounded-lg bg-accent text-primary">
+                  <group.icon className="h-7 w-7" />
+                </div>
+                <CardTitle className="text-xl">{group.title}</CardTitle>
+                <CardDescription className="text-base">
+                  {group.description}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Button variant="ghost" asChild className="group/btn p-0 h-auto">
+                  <Link to={group.link} className="inline-flex items-center text-primary font-medium">
+                    {group.linkText}
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     </section>
@@ -130,47 +119,32 @@ const TargetGroupSection = () => {
 
 const ValuesSection = () => {
   const values = [
-    {
-      title: "Keine Rendite mit Wohnen",
-      description: "Wir arbeiten nicht gewinnorientiert. Bei uns steht der Mensch im Mittelpunkt, nicht die Rendite.",
-    },
-    {
-      title: "Langfristige Sicherheit",
-      description: "Wir vermitteln an Käufer, die dauerhaft bezahlbares Wohnen garantieren.",
-    },
-    {
-      title: "Transparenz & Vertrauen",
-      description: "Offene Kommunikation und faire Prozesse sind die Grundlage unserer Arbeit.",
-    },
-    {
-      title: "Gemeinschaftliches Eigentum",
-      description: "Wir fördern Modelle, bei denen Häuser dauerhaft dem Gemeinwohl dienen.",
-    },
+    { icon: HandHeart, title: "Keine Rendite mit Wohnen", description: "Mensch vor Profit." },
+    { icon: ShieldCheck, title: "Langfristige Sicherheit", description: "Dauerhaft bezahlbares Wohnen." },
+    { icon: Eye, title: "Transparenz", description: "Offen und fair im Prozess." },
+    { icon: Sprout, title: "Gemeinschaftliches Eigentum", description: "Häuser im Dienst des Gemeinwohls." },
   ];
 
   return (
-    <section className="relative py-16 md:py-24 overflow-hidden">
-      <div 
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${peopleMeeting2})` }}
-      />
-      <div className="absolute inset-0 bg-background/90" />
-      <div className="container-wide relative z-10">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="mb-4">Unsere Werte</h2>
+    <section className="py-12 md:py-20 bg-background border-t">
+      <div className="container-wide">
+        <div className="max-w-2xl mb-8 md:mb-10">
+          <h2 className="mb-3">Unsere Werte</h2>
           <p className="text-lg text-muted-foreground">
-            Die GIMA steht für einen anderen Umgang mit Immobilien – 
-            sozial verantwortlich und nachhaltig.
+            Sozial verantwortlich und nachhaltig – kurz gesagt.
           </p>
         </div>
-        
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {values.map((value, index) => (
-            <div 
+            <div
               key={index}
-              className="bg-background rounded-lg p-6 border shadow-sm"
+              className="flex flex-col gap-2 p-4 md:p-5 rounded-lg border bg-secondary/30"
             >
-              <h3 className="text-lg font-semibold mb-2">{value.title}</h3>
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-md bg-accent text-primary">
+                <value.icon className="h-5 w-5" />
+              </div>
+              <h3 className="text-base font-semibold leading-tight">{value.title}</h3>
               <p className="text-muted-foreground text-sm">{value.description}</p>
             </div>
           ))}
@@ -182,7 +156,7 @@ const ValuesSection = () => {
 
 const CTASection = () => {
   return (
-    <section className="py-16 md:py-24 bg-primary text-primary-foreground">
+    <section className="py-12 md:py-20 bg-primary text-primary-foreground">
       <div className="container-wide text-center">
         <div className="max-w-2xl mx-auto space-y-6">
           <h2 className="text-primary-foreground">
@@ -192,8 +166,8 @@ const CTASection = () => {
             Ob Sie verkaufen, kaufen oder sich engagieren möchten – 
             wir beraten Sie gerne unverbindlich.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <Button size="lg" variant="secondary" asChild>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-4">
+            <Button size="lg" variant="secondary" asChild className="w-full sm:w-auto">
               <Link to="/kontakt">
                 Kontakt aufnehmen
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -203,7 +177,7 @@ const CTASection = () => {
               size="lg" 
               variant="outline" 
               asChild
-              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
+              className="w-full sm:w-auto border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
             >
               <Link to="/faq">
                 Häufige Fragen
@@ -220,6 +194,7 @@ const HomePage = () => {
   return (
     <>
       <HeroSection />
+      <NewsSection />
       <TargetGroupSection />
       <ValuesSection />
       <CTASection />
