@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Rss } from "lucide-react";
+import { Mail, Phone, Rss } from "lucide-react";
+import gimaLogo from "@/assets/gima-herz-logo.jpg";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -8,30 +9,15 @@ const Footer = () => {
     <footer className="bg-muted border-t">
       <div className="container-wide py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {/* Über GIMA */}
+          {/* Marke */}
           <div className="space-y-4">
-            <div className="flex items-center">
-              <svg 
-                viewBox="0 0 40 40" 
-                className="h-8 w-8"
-                aria-label="GIMA Logo"
-              >
-                <circle cx="20" cy="20" r="18" fill="hsl(174, 58%, 39%)" />
-                <path 
-                  d="M12 20 L20 12 L28 20 L20 28 Z" 
-                  fill="white" 
-                  opacity="0.9"
-                />
-                <circle cx="20" cy="20" r="4" fill="hsl(174, 65%, 28%)" />
-              </svg>
-              <span className="ml-2 text-lg font-semibold">
-                GIMA Frankfurt
-              </span>
-            </div>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Genossenschaftliche Immobilienagentur Frankfurt eG – 
-              Wir vermitteln Häuser in gute Hände und setzen uns für 
-              sozialverträgliches Wohnen ein.
+            <img
+              src={gimaLogo}
+              alt="GIMA Frankfurt"
+              className="h-20 w-auto object-contain"
+            />
+            <p className="text-sm font-semibold text-foreground leading-snug">
+              Immobilien sozialverträglich<br />verkaufen
             </p>
           </div>
 
@@ -97,29 +83,27 @@ const Footer = () => {
           {/* Kontakt */}
           <div className="space-y-4">
             <h3 className="font-semibold text-foreground">Kontakt</h3>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 mt-0.5 text-primary flex-shrink-0" />
-                <span className="text-muted-foreground">
-                  Frankfurt am Main
+            <ul className="space-y-4 text-sm">
+              <li className="flex items-center gap-3">
+                <span className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Mail className="h-5 w-5 text-primary" />
                 </span>
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-primary flex-shrink-0" />
-                <a 
-                  href="mailto:kontakt@gima-frankfurt.de" 
+                <a
+                  href="mailto:info@gima-frankfurt.de"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  kontakt@gima-frankfurt.de
+                  info@gima-frankfurt.de
                 </a>
               </li>
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-primary flex-shrink-0" />
-                <a 
-                  href="tel:+4969123456789" 
+              <li className="flex items-center gap-3">
+                <span className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Phone className="h-5 w-5 text-primary" />
+                </span>
+                <a
+                  href="tel:+496995928082"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  +49 69 123 456 789
+                  +49 69 9592 8082
                 </a>
               </li>
             </ul>
